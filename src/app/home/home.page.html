@@ -1,25 +1,50 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Adivina el número secreto
+      Adivina la carta
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <div class="ion-padding">
-    <ion-input type="number" min="1" max="100" [(ngModel)]="num"
-      placeholder="Introduce un número del 1 al 100"></ion-input>
-    <p>El número secreto es {{ mayorMenor }} que el número introducido</p>
-    <ion-card *ngIf="mayorMenor == 'igual'">
+    <h2>¿Qué carta está buscando?</h2>
+    <ul>
+      <li>picas</li>
+      <li>corazones</li>
+      <li>diamantes</li>
+      <li>tréboles</li>
+    </ul>
+    <!-- Input para ingresar la carta -->
+    <ion-input type="text" [(ngModel)]="nombreCarta" placeholder="Introduce la carta"></ion-input>
+
+    <!-- Botón para adivinar -->
+    <ion-button expand="block" (click)="elegirCarta()">Adivinar</ion-button>
+
+    <!-- Número de intentos -->
+    <p *ngIf="mostrarResultado">Intentos: {{attempts}}</p>
+
+    <!-- Mensaje de éxito si la carta es correcta -->
+    <ion-card *ngIf="mostrarResultado && validacion">
       <ion-card-header>
         ¡¡¡Enhorabuena!!!
       </ion-card-header>
       <ion-card-content>
-      Has acertado, el númereo secreto es {{num}}
+        La carta secreta era: {{cartaSecreta}}
       </ion-card-content>
     </ion-card>
-    <ion-button class="buton" expand="block" *ngIf="mayorMenor!='igual'" (click)="compruebaNumero()">Adivina</ion-button>
-    <ion-button expand="block" *ngIf="mayorMenor=='igual'" (click)="reinicia()">Volver a jugar</ion-button>
+
+    <!-- Mensaje de fallo si la carta es incorrecta -->
+    <ion-card *ngIf="mostrarResultado && !validacion">
+      <ion-card-header>
+        Inténtalo de nuevo
+      </ion-card-header>
+      <ion-card-content>
+        La carta introducida no es correcta.
+      </ion-card-content>
+    </ion-card>
+
+    <!-- Botón para reiniciar si el usuario falla -->
+    <ion-button *ngIf="mostrarResultado" expand="block" (click)="reiniciar()">Volver a jugar</ion-button>
   </div>
 </ion-content>

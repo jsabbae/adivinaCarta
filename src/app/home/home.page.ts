@@ -7,32 +7,44 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  num: number = 0;
-  numSecret: number = this.numAleatorio(1, 100);
-  mayorMenor: string = '...';
+
+  nombreCarta = '';
+  cartaSecreta = '';
+  attempts = 0; // Contador -> número de intentos
+  mostrarResultado = false;
+  validacion = false;
 
   constructor() {
-    console.log("El número secreto es: " + this.numSecret);
+    this.inicializarJuego();
   }
-  numAleatorio(a: number, b: number) {
-    return Math.round(Math.random() * (b - a) + Math.trunc(a));
+
+  inicializarJuego() {
+    const todasCartas = ['picas', 'corazones', 'diamantes', 'tréboles'];
+    this.cartaSecreta = todasCartas[Math.floor(Math.random() * todasCartas.length)];
+    console.log('La carta secreta es:', this.cartaSecreta); // Para fines de prueba
   }
-  compruebaNumero() {
-    if (this.num) {
-      if (this.numSecret < this.num) {
-        this.mayorMenor = 'menor';
-      } else if (this.numSecret > this.num) {
-        this.mayorMenor = 'mayor';
-      } else {
-        this.mayorMenor = 'igual';
-      }
+
+  elegirCarta() {
+    this.mostrarResultado = true;
+    this.attempts++;
+    console.log('Has introducido la carta:', this.nombreCarta);
+
+    if (this.nombreCarta === this.cartaSecreta) {
+      this.validacion = true;
+      console.log("¡¡¡Acertaste!!! la carta era: " + this.cartaSecreta);
+    } else {
+      this.validacion = false;
+      console.log("No es la carta secreta");
     }
   }
-  reinicia() {
-    //  Reiniciamos las variables 
-    this.num = 0; //  Se inicializa a 0
-    this.mayorMenor = '...';
-    this.numSecret = this.numAleatorio(1, 100);
-    console.log("El número secreto es: " + this.numSecret);
+
+  reiniciar() {
+    this.mostrarResultado = true;
+    this.validacion = false;
+    this.attempts = 0;
+    this.nombreCarta = '';
+    this.inicializarJuego();
+    console.log('Reiniciando el juego');
   }
+
 }
