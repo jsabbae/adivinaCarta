@@ -1,0 +1,181 @@
+/* Pequeña pantalla */
+@media screen and (max-width: 767px) {
+  h2 {
+    font-size: 18px;
+    text-align: center;
+    color: #ff5722;
+
+    background-image: url('https://img.freepik.com/vector-gratis/ilustracion-icono-vector-realista-baraja-completa-cartas-poquer_134830-1755.jpg?t=st=1733168319~exp=1733171919~hmac=2e96b59eb55cbe64ede991f6a767b40beae8efa98f94d99d64ae55942b97c52c&w=1380');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+
+  }
+
+  ul {
+    padding: 0;
+    list-style-type: none;
+    text-align: center;
+    background-color: #bebec2;
+  }
+
+  ul li {
+    margin: 5px 0;
+    font-size: 14px;
+    color: #888;
+  }
+
+  .acertaste {
+    background-color: greenyellow;
+  }
+
+  .intentaloDeNuevo {
+    background-color: rgb(228, 65, 65);
+  }
+
+  ion-input {
+    font-size: 14px;
+    margin: 10px 0;
+  }
+
+  ion-button {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  ion-button:active {
+    background: #00d1fa;
+    /* Color rojo al presionar */
+    color: #ffffff;
+  }
+
+  ion-card {
+    margin: 10px;
+    font-size: 14px;
+  }
+}
+
+/* Pantalla mediana */
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  h2 {
+    font-size: 24px;
+    text-align: left;
+    color: #4caf50;
+
+    background-image: url('https://img.freepik.com/vector-gratis/ilustracion-icono-vector-realista-baraja-completa-cartas-poquer_134830-1755.jpg?t=st=1733168319~exp=1733171919~hmac=2e96b59eb55cbe64ede991f6a767b40beae8efa98f94d99d64ae55942b97c52c&w=1380');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  ul {
+    padding: 10px;
+    list-style-type: disc;
+    background-color: #bebec2;
+  }
+
+  ul li {
+    margin: 8px 0;
+    font-size: 16px;
+    color: #666;
+  }
+
+  .acertaste {
+    background-color: greenyellow;
+  }
+
+  .intentaloDeNuevo {
+    background-color: rgb(228, 65, 65);
+  }
+
+  ion-input {
+    font-size: 16px;
+    margin: 15px 0;
+  }
+
+  ion-button {
+    font-size: 16px;
+    padding: 15px;
+  }
+
+  ion-button:active {
+    background: #00d1fa;
+    /* Color rojo al presionar */
+    color: #ffffff;
+  }
+
+  ion-card {
+    margin: 15px;
+    font-size: 16px;
+  }
+}
+
+/* Pantalla grande */
+@media screen and (min-width: 1024px) {
+  h2 {
+    font-size: 32px;
+    text-align: center;
+    color: #3f51b5;
+
+    background-image: url('https://img.freepik.com/vector-gratis/ilustracion-icono-vector-realista-baraja-completa-cartas-poquer_134830-1755.jpg?t=st=1733168319~exp=1733171919~hmac=2e96b59eb55cbe64ede991f6a767b40beae8efa98f94d99d64ae55942b97c52c&w=1380');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  ul {
+    padding: 20px;
+    list-style-type: square;
+    background-color: #bebec2;
+  }
+
+  ul li {
+    margin: 10px 0;
+    font-size: 18px;
+    color: #444;
+  }
+
+  .acertaste {
+    background-color: greenyellow;
+  }
+
+  .intentaloDeNuevo {
+    background-color: rgb(228, 65, 65);
+  }
+
+  ion-input {
+    font-size: 18px;
+    margin: 20px 0;
+  }
+
+  ion-button {
+    font-size: 18px;
+    padding: 20px;
+  }
+
+  ion-button:active {
+    background: #00d1fa;
+    /* Color rojo al presionar */
+    color: #ffffff;
+  }
+
+  ion-card {
+    margin: 20px;
+    font-size: 18px;
+  }
+}
+
+/* Mostrar solo en modo vertical */
+@media screen and (orientation: portrait) {
+  .portrait-message {
+    display: block;
+  }
+}
+
+/* Mostrar solo en modo horizontal */
+@media screen and (orientation: landscape) {
+  .landscape-message {
+    display: block;
+  }
+}

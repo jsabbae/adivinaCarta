@@ -1,0 +1,50 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Adivina la carta
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="ion-padding">
+    <h2>¿Qué carta está buscando?</h2>
+    <ul>
+      <li>picas</li>
+      <li>corazones</li>
+      <li>diamantes</li>
+      <li>tréboles</li>
+    </ul>
+    <!-- Input para ingresar la carta -->
+    <ion-input type="text" [(ngModel)]="nombreCarta" placeholder="Introduce la carta"></ion-input>
+
+    <!-- Botón para adivinar -->
+    <ion-button expand="block" (click)="elegirCarta()">Adivinar</ion-button>
+
+    <!-- Número de intentos -->
+    <p *ngIf="mostrarResultado">Intentos: {{attempts}}</p>
+
+    <!-- Mensaje de éxito si la carta es correcta -->
+    <ion-card *ngIf="mostrarResultado && validacion">
+      <ion-card-header class="acertaste">
+        ¡¡¡Enhorabuena!!!
+      </ion-card-header>
+      <ion-card-content>
+        La carta secreta era: {{cartaSecreta}}
+      </ion-card-content>
+    </ion-card>
+
+    <!-- Mensaje de fallo si la carta es incorrecta -->
+    <ion-card *ngIf="mostrarResultado && !validacion">
+      <ion-card-header class="intentaloDeNuevo">
+        Inténtalo de nuevo
+      </ion-card-header>
+      <ion-card-content>
+        La carta introducida no es correcta.
+      </ion-card-content>
+    </ion-card>
+
+    <!-- Botón para reiniciar si el usuario falla -->
+    <ion-button *ngIf="mostrarResultado" expand="block" (click)="reiniciar()">Volver a jugar</ion-button>
+  </div>
+</ion-content>
